@@ -1,4 +1,5 @@
 # TourOfHeros
+This is the [Tour of Heros](https://angular.io/docs/ts/latest/tutorial/) tutorial at Angular.io.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
 
