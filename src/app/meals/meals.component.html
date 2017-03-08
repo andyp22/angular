@@ -1,6 +1,9 @@
 <h2>{{title}}</h2>
 <div>
-  <ul>
-    <li *ngFor="let meal of meals"><a routerLink="/meal/{{meal.id}}">{{meal.name}}</a></li>
-  </ul>
+  <dl>
+    <div *ngFor="let meal of meals" class="meal-card">
+      <dt><a routerLink="/meal/{{meal.id}}">{{meal.name}}</a></dt>
+      <dd><img class="meal-img" src="/assets/images/cutlery-297616.svg" ></dd>
+    </div>
+  </dl>
 </div>

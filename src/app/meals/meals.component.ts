@@ -10,7 +10,7 @@ import { MealService } from './meal.service';
 })
 
 export class MealsComponent implements OnInit {
-  title = 'Meals';
+  title = 'This Week\' Meals';
   meals: Meal[];
 
   constructor(private mealService: MealService) { }
@@ -21,6 +21,6 @@ export class MealsComponent implements OnInit {
 
   getMeals(): void {
     this.mealService.getMeals()
-      .then(meals => this.meals = meals);
+      .then(meals => this.meals = meals.splice(0,7));
   }
 }
