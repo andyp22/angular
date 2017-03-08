@@ -1,0 +1,6 @@
+<h2>{{title}}</h2>
+<div>
+  <ul>
+    <li *ngFor="let meal of meals"><a routerLink="/meal/{{meal.id}}">{{meal.name}}</a></li>
+  </ul>
+</div>
