@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -18,11 +19,16 @@ export class MealScreenComponent implements OnInit {
 
   constructor(
     private mealService: MealService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.mealService.getMeal(+params['id']))
       .subscribe(meal => this.meal = meal);
+  }
+
+  goBack() {
+    this.location.back();
   }
 }
