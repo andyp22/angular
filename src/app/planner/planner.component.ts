@@ -35,6 +35,14 @@ export class PlannerComponent implements OnInit {
 
   getMeals(): void {
     this.mealService.getMeals()
-      .then(meals => this.meals = meals);
+      .then(meals => this.meals = meals.sort((a: Meal, b: Meal) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      }));
   }
 }

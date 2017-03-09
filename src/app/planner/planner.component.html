@@ -1,4 +1,12 @@
 <h2>{{title}}</h2>
-<div *ngIf="currentWeek">
-  <h3>Current Week: {{currentWeek.id}}</h3>
+<div id="currentWeek">
+  <div id="plannerRow" *ngIf="currentWeek">
+    <h3>Current Week: {{currentWeek.id}}</h3>
+  </div>
+</div>
+<hr>
+<div id="userMeals">
+  <dl *ngFor="let currentMeal of meals">
+    <app-component-meal-card [meal]="currentMeal"></app-component-meal-card>
+  </dl>
 </div>
