@@ -2,11 +2,20 @@
 <div id="currentWeek">
   <div id="plannerRow" *ngIf="currentWeek">
     <h3>Current Week: {{currentWeek.id}}</h3>
+    <dl>
+      <div class="bayContainer" *ngFor="let bay of plannerBays" [ngSwitch]="bay.id > 0">
+        <div *ngSwitchCase="true" class="fullBay bay">
+          <app-component-meal-card [meal]="bay"></app-component-meal-card>
+        </div>
+        <div *ngSwitchDefault class="emptyBay bay"></div>
+      </div>
+    </dl>
   </div>
 </div>
-<hr>
 <div id="userMeals">
-  <dl *ngFor="let currentMeal of meals">
-    <app-component-meal-card [meal]="currentMeal"></app-component-meal-card>
+  <dl>
+    <div *ngFor="let currentMeal of meals" class="bayContainer">
+      <app-component-meal-card [meal]="currentMeal" class="bay"></app-component-meal-card>
+    </div>
   </dl>
 </div>

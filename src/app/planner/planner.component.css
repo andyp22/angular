@@ -1,0 +1,25 @@
+#currentWeek {
+  border-bottom: 1px solid black;
+}
+
+.bayContainer,
+.bay {
+  display: inline-block;
+}
+
+.bayContainer {
+  width: 124px;
+  height: 165px;
+  padding: 0;
+  margin: 3px;
+}
+
+.bay {
+  border: 1px solid grey;
+}
+
+.emptyBay {
+  background-color: lightgrey;
+  height: 100%;
+  width: 100%;
+}

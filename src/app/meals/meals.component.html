@@ -1,6 +1,8 @@
 <h2>{{title}}</h2>
 <div>
-  <dl *ngFor="let currentMeal of meals">
-    <app-component-meal-card [meal]="currentMeal"></app-component-meal-card>
+  <dl>
+    <div *ngFor="let currentMeal of meals" class="bayContainer">
+      <app-component-meal-card [meal]="currentMeal" class="bay"></app-component-meal-card>
+    </div>
   </dl>
 </div>

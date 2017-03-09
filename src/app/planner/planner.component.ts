@@ -18,7 +18,8 @@ import { Week } from '../weeks/week';
 export class PlannerComponent implements OnInit {
   title = 'Meal Planner';
   currentWeek: Week;
-  meals: Meal[];
+  meals: Meal[] = [];
+  plannerBays = [];
 
   constructor(
     private mealService: MealService,
@@ -30,7 +31,20 @@ export class PlannerComponent implements OnInit {
     this.getMeals();
     this.route.params
       .switchMap((params: Params) => this.weekService.getWeek(+params['week']))
-      .subscribe(week => this.currentWeek = week);
+      .subscribe((week) => {
+        this.currentWeek = week;
+        console.log(this.currentWeek.meals);
+        this.plannerBays.concat(this.currentWeek.meals);
+        console.log(this.plannerBays.length);
+        //if (this.plannerBays.length < 7) {
+          console.log('adding bays');
+          for (let i = 0; i < 7; i++) {
+            console.log(i);
+            this.plannerBays.push((this.currentWeek.meals[i]) ? this.currentWeek.meals[i] : { id: -1 });
+          }
+        //}
+        console.log(this.plannerBays.length);
+      });
   }
 
   getMeals(): void {
