@@ -6,7 +6,7 @@ import { WEEKS } from './mock-weeks';
 @Injectable()
 export class WeekService {
   getWeeks(): Promise<Week[]> {
-    return Promise.resolve(WEEKS);
+    return Promise.resolve([].concat(WEEKS));
   }
 
   getWeek(id: number): Promise<Week> {
