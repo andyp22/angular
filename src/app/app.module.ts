@@ -8,6 +8,9 @@ import { UnderConstructionComponent } from './under-construction/under-construct
 
 import { MealsComponent } from './meals/meals.component';
 import { MealService } from './meals/meal.service';
+import { WeekService } from './weeks/week.service';
+import { PlannerComponent } from './planner/planner.component';
+import { MealScreenComponent } from './meal-screen/meal-screen.component';
 
 @NgModule({
   imports: [
@@ -18,10 +21,13 @@ import { MealService } from './meals/meal.service';
   declarations: [
     AppComponent,
     UnderConstructionComponent,
-    MealsComponent
+    MealsComponent,
+    PlannerComponent,
+    MealScreenComponent
   ],
   providers: [
-    MealService
+    MealService,
+    WeekService
   ],
   bootstrap: [ AppComponent ]
 })

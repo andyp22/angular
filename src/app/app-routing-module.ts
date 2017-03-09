@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { MealsComponent } from './meals/meals.component';
+import { PlannerComponent } from './planner/planner.component';
+import { MealScreenComponent } from './meal-screen/meal-screen.component';
 
 const ROUTES: Routes = [
   {
@@ -16,11 +18,11 @@ const ROUTES: Routes = [
   },
   { // View/Edit single meal
     path: 'meal/:id',
-    component: UnderConstructionComponent
+    component: MealScreenComponent
   },
   { // Open the weekly planner showing the specified week
     path: 'planner/:week',
-    component: UnderConstructionComponent
+    component: PlannerComponent
   }
 ];
 
