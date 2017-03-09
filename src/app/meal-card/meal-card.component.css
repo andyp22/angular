@@ -1,0 +1,48 @@
+.meal-card {
+  width: 150px;
+  height: 200px;
+  padding: 0;
+  margin: 5px;
+  border: 1px solid grey;
+  float: left;
+}
+
+.meal-card dt {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Neucha', cursive;
+  font-size: 120%;
+  line-height: 1.4;
+  height: 25%;
+}
+
+.meal-card dt a {
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  color: #666;
+  font-weight: bold;
+}
+
+.meal-card dt a:hover {
+  color: orangered;
+}
+
+.meal-card dd {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  height: 75%;
+}
+
+.meal-card .meal-img {
+  width: 130px;
+  height: 130px;
+  margin: 10px;
+  position: absolute;
+  bottom: 0;
+}

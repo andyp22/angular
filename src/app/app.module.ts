@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing-module';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
+import { MealCardComponent } from './meal-card/meal-card.component';
+
 import { MealsComponent } from './meals/meals.component';
 import { MealService } from './meals/meal.service';
 import { WeekService } from './weeks/week.service';
@@ -23,7 +25,8 @@ import { MealScreenComponent } from './meal-screen/meal-screen.component';
     UnderConstructionComponent,
     MealsComponent,
     PlannerComponent,
-    MealScreenComponent
+    MealScreenComponent,
+    MealCardComponent
   ],
   providers: [
     MealService,
