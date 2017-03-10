@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 
+import { LocalStorageService } from '../services/localStorage.service';
+
 import { Week } from './week';
 import { WEEKS } from './mock-weeks';
 
 @Injectable()
-export class WeekService {
-  LOCAL_STORAGE_NAME = 'weeks';
-  saved: Week[] = [];
+export class WeekService extends LocalStorageService {
+  constructor() {
+    super();
+    this.localStorageName = 'weeks';
+    this.defaultData = [].concat(WEEKS);
+  }
 
   getWeeks(): Promise<Week[]> {
-    return Promise.resolve(this.getLocalStorageWeeks());
+    return Promise.resolve(this.getLocalStorage());
   }
 
   getWeek(id: number): Promise<Week> {
@@ -18,23 +23,13 @@ export class WeekService {
   }
 
   saveWeek(week: Week): void {
-    const weeks: Week[] = this.getLocalStorageWeeks();
+    const weeks: Week[] = this.getLocalStorage();
     const index: number =  weeks.findIndex(m => m.id === week.id);
     if(index > -1) {
       weeks[index] = week;
     } else {
       weeks.push(week);
     }
-    this.saveLocalStorageWeeks(weeks);
-  }
-
-  getLocalStorageWeeks(): Week[] {
-    this.saved = (localStorage.getItem(this.LOCAL_STORAGE_NAME) !== null) ?
-      JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_NAME)) : [].concat(WEEKS);
-    return this.saved;
-  }
-
-  saveLocalStorageWeeks(weeks: Week[]): void {
-    localStorage.setItem(this.LOCAL_STORAGE_NAME, JSON.stringify(weeks));
+    this.saveLocalStorage(weeks);
   }
 }
