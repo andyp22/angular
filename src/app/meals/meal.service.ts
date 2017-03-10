@@ -5,6 +5,7 @@ import { MEALS } from './mock-meals';
 
 @Injectable()
 export class MealService {
+  LOCAL_STORAGE_NAME = 'meals';
   saved: Meal[] = [];
 
   getMeals(): Promise<Meal[]> {
@@ -28,11 +29,12 @@ export class MealService {
   }
 
   getLocalStorageMeals(): Meal[] {
-    this.saved = (localStorage.getItem('meals') !== null) ? JSON.parse(localStorage.getItem('meals')) : [].concat(MEALS);
+    this.saved = (localStorage.getItem(this.LOCAL_STORAGE_NAME) !== null) ?
+      JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_NAME)) : [].concat(MEALS);
     return this.saved;
   }
 
   saveLocalStorageMeals(meals: Meal[]): void {
-    localStorage.setItem('meals', JSON.stringify(meals));
+    localStorage.setItem(this.LOCAL_STORAGE_NAME, JSON.stringify(meals));
   }
 }
