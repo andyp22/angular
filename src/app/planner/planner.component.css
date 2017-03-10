@@ -2,9 +2,17 @@
   border-bottom: 1px solid black;
 }
 
+#currentWeek ul {
+  padding-left: 0;
+}
+
 .bayContainer,
 .bay {
   display: inline-block;
+}
+
+.bay {
+  position: relative;
 }
 
 .bayContainer {
@@ -14,12 +22,21 @@
   margin: 3px;
 }
 
-.bay {
-  border: 1px solid grey;
-}
-
 .emptyBay {
-  background-color: lightgrey;
+  background-color: #eee;
   height: 100%;
   width: 100%;
+}
+
+.removeBtn {
+  top: 0;
+  right: 0;
+  position: absolute;
+  font-weight: bold;
+  color: transparent;
+  padding: 3px 6px;
+}
+.removeBtn:hover {
+  color: black;
+  background-color: grey;
 }

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { DndModule } from 'ng2-dnd';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing-module';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
@@ -18,7 +20,8 @@ import { MealScreenComponent } from './meal-screen/meal-screen.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DndModule.forRoot()
   ],
   declarations: [
     AppComponent,

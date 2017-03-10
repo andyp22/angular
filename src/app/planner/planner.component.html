@@ -1,20 +1,23 @@
 <h2>{{title}}</h2>
 <div id="currentWeek">
-  <div id="plannerRow" *ngIf="currentWeek">
+  <div id="plannerRow" *ngIf="currentWeek" dnd-droppable [dropZones]="['dropZone']" (onDropSuccess)="addToPlanner($event)" >
     <h3>Current Week: {{currentWeek.id}}</h3>
-    <dl>
-      <div class="bayContainer" *ngFor="let bay of plannerBays" [ngSwitch]="bay.id > 0">
+    <ul dnd-sortable-container [sortableData]="plannerBays">
+      <li class="bayContainer" *ngFor="let bay of plannerBays; let x = index" [ngSwitch]="bay.id > 0" dnd-sortable [sortableIndex]="x">
         <div *ngSwitchCase="true" class="fullBay bay">
           <app-component-meal-card [meal]="bay"></app-component-meal-card>
+          <a class="removeBtn" (click)="removeBay(x)">X</a>
         </div>
-        <div *ngSwitchDefault class="emptyBay bay"></div>
-      </div>
-    </dl>
+        <div *ngSwitchDefault class="emptyBay bay">
+          <!--h4>Day {{x + 1}}</h4-->
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 <div id="userMeals">
   <dl>
-    <div *ngFor="let currentMeal of meals" class="bayContainer">
+    <div *ngFor="let currentMeal of meals; let x = index" class="bayContainer" dnd-draggable [dragEnabled]="true" [dragData]="currentMeal" (onDropSuccess)="removeFromPlanner($event)" [dropZones]="['dropZone']">
       <app-component-meal-card [meal]="currentMeal" class="bay"></app-component-meal-card>
     </div>
   </dl>
