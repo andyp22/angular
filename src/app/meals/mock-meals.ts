@@ -40,5 +40,9 @@ export const MEALS: Meal[] = [
   {
     id: 110,
     name: 'Breakfast Tacos'
+  },
+  {
+    id: 111,
+    name: 'Pasta & Garlic Bread'
   }
 ];
