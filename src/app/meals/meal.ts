@@ -1,4 +1,7 @@
+import { Ingredient } from '../ingredients/ingredients';
 
-export class Meal {
-  constructor(public id: number, public name: string) { }
+export interface Meal {
+  id: number;
+  name: string;
+  ingredients?: number[];
 }

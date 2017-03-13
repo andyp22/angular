@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing-module';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
-import { MealCardComponent } from './meal-card/meal-card.component';
-
-import { MealsComponent } from './meals/meals.component';
 import { MealService } from './meals/meal.service';
 import { WeekService } from './weeks/week.service';
+import { IngredientService } from './ingredients/ingredient.service';
+
+import { MealCardComponent } from './meal-card/meal-card.component';
+import { MealsComponent } from './meals/meals.component';
 import { PlannerComponent } from './planner/planner.component';
 import { MealScreenComponent } from './meal-screen/meal-screen.component';
 
@@ -32,6 +33,7 @@ import { MealScreenComponent } from './meal-screen/meal-screen.component';
     MealCardComponent
   ],
   providers: [
+    IngredientService,
     MealService,
     WeekService
   ],

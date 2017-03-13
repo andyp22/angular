@@ -1,5 +1,11 @@
 <h2>{{title}}</h2>
 <div *ngIf="meal">
-  <h3>Current Meal: {{meal.name}}</h3>
+  <h3>{{meal.name}}</h3>
+  <label for="ingredient-list">Ingredient List</label>
+  <ul id="ingredient-list">
+    <li>Chicken</li>
+    <li>Mac & Cheese</li>
+    <li>Green Beans</li>
+  </ul>
 </div>
 <button (click)="goBack()">Go Back</button>
